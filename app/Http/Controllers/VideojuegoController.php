@@ -125,6 +125,7 @@ class VideojuegoController extends Controller
      */
     public function destroy(Videojuego $videojuego)
     {
+        $videojuego->propietarios()->detach();
         $videojuego->delete();
         return redirect()->route('videojuegos.index');
     }

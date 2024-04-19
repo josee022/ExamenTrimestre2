@@ -10,21 +10,22 @@ class Listas extends Component
 {
     public $distribuidora_id = null;
     public $desarrolladora_id = null;
-    public $desarrolladoras = null;
+    public $desarrolladoras = [];
 
     public function mount()
     {
-        $this->desarrolladoras = Distribuidora::find($this->distribuidora_id)
-        ->desarrolladoras()
-        ->get();
+        $this->cambia();
     }
 
     public function cambia()
     {
-        $this->desarrolladoras =
-            Distribuidora::find($this->distribuidora_id)
+        if ($this->distribuidora_id) {
+            $this->desarrolladoras = Distribuidora::find($this->distribuidora_id)
                 ->desarrolladoras()
                 ->get();
+        } else {
+            $this->desarrolladoras = [];
+        }
     }
 
     public function render()

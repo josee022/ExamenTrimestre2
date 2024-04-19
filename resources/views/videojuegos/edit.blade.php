@@ -23,7 +23,7 @@
             </div>
 
             <!-- Desarrolladora -->
-            <livewire:listas :$distribuidora_id :$desarrolladora_id />
+            <livewire:listas :distribuidora_id="$videojuego->distribuidora_id" :desarrolladora_id="$videojuego->desarrolladora_id" />
 
             {{-- <div class="mt-4">
                 <x-input-label for="desarrolladora_id" :value="'Desarrolladora del artículo'" />
